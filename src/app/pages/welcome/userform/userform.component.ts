@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { tick } from '@angular/core/testing';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
