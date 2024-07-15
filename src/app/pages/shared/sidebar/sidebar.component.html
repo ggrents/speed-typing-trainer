@@ -1,1 +1,37 @@
-<p>sidebar works!</p>
+<nav class="list-wrapper">
+  <div
+    class="list-item"
+    (click)="selectItem('createTest')"
+    [ngClass]="{ active: selectedItem === 'createTest' }"
+  >
+    СОЗДАТЬ ТЕСТ
+  </div>
+  <div
+    class="list-item"
+    (click)="selectItem('results')"
+    [ngClass]="{ active: selectedItem === 'results' }"
+  >
+    РЕЗУЛЬТАТЫ
+  </div>
+  <div
+    class="list-item"
+    (click)="selectItem('chooseLanguage')"
+    [ngClass]="{ active: selectedItem === 'chooseLanguage' }"
+  >
+    ВЫБРАТЬ ЯЗЫК
+  </div>
+  <div
+    class="list-item"
+    (click)="selectItem('settings')"
+    [ngClass]="{ active: selectedItem === 'settings' }"
+  >
+    НАСТРОЙКИ
+  </div>
+  <div
+    class="list-item"
+    (click)="selectItem('login')"
+    [ngClass]="{ active: selectedItem === 'login' }"
+  >
+    ВОЙТИ
+  </div>
+</nav>
