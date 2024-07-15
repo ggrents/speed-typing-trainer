@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   templateUrl: './userform.component.html',
   styleUrl: './userform.component.scss'
 })
-export class UserformComponent {
+export class UserformComponent implements OnInit {
+  isLogin: boolean = false;
   form: FormGroup;
   fb: FormBuilder = inject(FormBuilder);
 
@@ -17,5 +18,13 @@ export class UserformComponent {
       username: [''],
       passwotd: ['']
     })
+  }
+  ngOnInit(): void {
+    this.isLogin = true;
+  }
+
+  switchFormMode(event: any) {
+    event.preventDefault();
+    this.isLogin = !this.isLogin;
   }
 }

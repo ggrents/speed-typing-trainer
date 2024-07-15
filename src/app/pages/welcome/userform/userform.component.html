@@ -1,15 +1,33 @@
-<form  class="userform">
+<form class="userform">
+  <div class="userform-groups">
     <div class="userform-group">
-        <label for="username">Логин</label>
-        <input id="username" type="text">
+      <label for="username">Логин</label>
+      <input id="username" type="text" />
     </div>
     <div class="userform-group">
-        <label for="password"> Пароль</label>
-        <input id="password" type="password">
+      <label for="password"> Пароль</label>
+      <input id="password" type="password" />
     </div>
+    <div class="remember-checkbox">
+      <input type="checkbox" />
+      <span>Запомнить меня</span>
+    </div>
+  </div>
 
-    <div class="userform-footer">
-        <button> Войти </button>
-        <span>Еще нет аккаунта?</span>
-    </div>
+  <div class="userform-footer">
+    <button (click)="switchFormMode($event)">
+      {{ isLogin ? "Войти" : "Зарегистрироваться" }}
+    </button>
+    @if (isLogin) {
+    <span class="footer-noacc"
+      >Еще нет аккаунта?
+      <span class="register"> Зарегистрироваться.</span>
+    </span>
+    } @else {
+    <span class="footer-noacc"
+      >Уже есть аккаунт?
+      <span class="register"> Войти.</span>
+    </span>
+    }
+  </div>
 </form>
