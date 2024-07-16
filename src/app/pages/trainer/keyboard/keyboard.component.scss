@@ -1,7 +1,29 @@
 .wrapper {
+  padding: 5px 7px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  background-color: var(--dark-color);
+  border-radius: 4px;
+  //   border: 1px solid var(--light-color);
+  .keyboard {
+    display: flex;
     height: 100%;
-    opacity: 0.8;
-    background-color: var(--dark-color);
-    border-radius: 4px;
-    border: 1px solid var(--light-color);
+    gap: 0.4%;
+    width: 100%;
+    flex-wrap: wrap;
+    &__button {
+      height: 33.33%;
+
+      border: 1px solid var(--light-color);
+      border-radius: 3px;
+      color: var(--light-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 8.7%;
+    }
+  }
 }

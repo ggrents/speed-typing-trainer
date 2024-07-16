@@ -1,1 +1,9 @@
-<div class="wrapper"></div>
+<div class="wrapper">
+  <div class="keyboard">
+    @for (key of keyboardButtons; track $index) {
+    <div class="keyboard__button">
+      {{ key.mark }}
+    </div>
+    }
+  </div>
+</div>
