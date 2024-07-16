@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
-  selectedItem: string = ''; 
+  selectedItem: string = 'start'; 
 
   selectItem(item: string) {
     this.selectedItem = item; 
