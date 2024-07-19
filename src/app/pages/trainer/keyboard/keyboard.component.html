@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="keyboard">
     @for (key of keyboardButtons; track $index) {
-    <div class="keyboard__button">
+    <div class="keyboard__button" [ngClass]="{ 'button-pushed': key.pushed }">
       {{ key.mark }}
     </div>
     }

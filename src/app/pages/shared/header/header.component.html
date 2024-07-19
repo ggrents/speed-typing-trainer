@@ -11,5 +11,10 @@
     </div>
   </div>
 
-  <button>НАЧАТЬ</button>
+  @if(isTimerStart) {
+  <div (click)="onClick()" class="timer-container">{{ totalSeconds }}</div>
+
+  } @else {
+  <button (click)="onClick()">НАЧАТЬ</button>
+  }
 </div>

@@ -34,4 +34,15 @@
     border: 1px solid var(--light-color);
     cursor: pointer;
   }
+  .timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+    width: 10%;
+    text-align: center;
+    color: var(--dark-color);
+    border: 1px solid var(--light-color);
+    border-radius: 3px;
+  }
 }

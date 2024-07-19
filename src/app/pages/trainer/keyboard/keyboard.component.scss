@@ -24,6 +24,24 @@
       align-items: center;
       justify-content: center;
       width: 8.7%;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--light-color);
+        color: var(--dark-color);
+      }
+
+      &:active {
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        transform: scale(0.95);
+      }
     }
   }
+}
+
+.button-pushed {
+  background-color: var(--light-color);
+  color: var(--dark-color) !important;
 }

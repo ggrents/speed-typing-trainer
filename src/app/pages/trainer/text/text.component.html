@@ -1,3 +1,9 @@
 <div class="wrapper">
-  <textarea name="" id="" placeholder="ВВОДИТЕ ТЕКСТ ЧТОБЫ НАЧАТЬ"></textarea>
+  <textarea
+    name=""
+    id=""
+    placeholder="ВВОДИТЕ ТЕКСТ ЧТОБЫ НАЧАТЬ"
+    [(ngModel)]="userInput"
+    (ngModelChange)="onUserInputChange($event)"
+  ></textarea>
 </div>
