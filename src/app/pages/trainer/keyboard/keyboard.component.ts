@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, inject, Inject, OnInit } from '@angular/core';
 import { KeyboardService } from '../../../services/keyboard.service';
 import { CommonModule } from '@angular/common';
+import { StateService } from '../../../services/state.service';
 
 interface IKey {
   pushed: boolean;
@@ -15,12 +16,19 @@ interface IKey {
   styleUrl: './keyboard.component.scss',
 })
 export class KeyboardComponent implements OnInit {
-  constructor(private _keyboardService: KeyboardService) {}
+  private _keyboardService = inject(KeyboardService);
+  private _stateService = inject(StateService);
+
+  constructor() {}
   ngOnInit(): void {
     this._keyboardService.inputButtonClick$.subscribe((_) => {
       this.keyboardButtons.forEach((_) => (_.pushed = false));
       let btn = this.keyboardButtons.find((i) => i.mark == _);
       if (btn) btn.pushed = true;
+    });
+
+    this._stateService.trialProgress$.subscribe((_) => {
+      if (!_) this.keyboardButtons.forEach((btn) => (btn.pushed = false));
     });
   }
 

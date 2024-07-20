@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
           case '/settings':
             this.activeRoute = 4;
             break;
-          case '/login':
+          case '/':
             this.activeRoute = 5;
             break;
           default:
@@ -60,13 +60,14 @@ export class HeaderComponent implements OnInit {
   onClick() {
     this._stateService.updateTrialProgress(true);
     this.isTimerStart = true;
-    this.timerSubscription$ = interval(1000).subscribe(() => {
+    this.timerSubscription$ = interval(100).subscribe(() => {
       if (this.totalSeconds > 0) {
         this.totalSeconds--;
         this._cdr.markForCheck();
       } else {
         this._stateService.updateTrialProgress(false);
         this.isTimerStart = false;
+        this.totalSeconds = 60;
         this.timerSubscription$.unsubscribe();
       }
     });

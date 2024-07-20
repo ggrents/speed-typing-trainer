@@ -2,7 +2,8 @@
   <textarea
     name=""
     id=""
-    placeholder="ВВОДИТЕ ТЕКСТ ЧТОБЫ НАЧАТЬ"
+    [disabled]="inputDisabled"
+    placeholder="НАЖМИТЕ КНОПКУ ЧТОБЫ НАЧАТЬ"
     [(ngModel)]="userInput"
     (ngModelChange)="onUserInputChange($event)"
   ></textarea>

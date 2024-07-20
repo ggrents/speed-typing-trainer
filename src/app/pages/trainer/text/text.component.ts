@@ -1,6 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, inject, Inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { KeyboardService } from '../../../services/keyboard.service';
+import { InputService } from '../../../services/input.service';
+import { StateService } from '../../../services/state.service';
 //
 @Component({
   selector: 'app-text',
@@ -11,14 +13,34 @@ import { KeyboardService } from '../../../services/keyboard.service';
 })
 export class TextComponent implements OnInit {
   userInput: string = '';
-  constructor(private _keyboardService: KeyboardService) {}
+  inputDisabled: boolean = true;
+
+  private _keyboardService = inject(KeyboardService);
+  private _inputService = inject(InputService);
+  private _stateService = inject(StateService);
+
+  constructor() {}
+
   ngOnInit(): void {
+    this._stateService.trialProgress$.subscribe((_) => {
+      this.inputDisabled = !_;
+      if (!_) {
+        this.userInput = '';
+      }
+    });
     this._keyboardService.keyboardButtonClick$.subscribe((_) => {
-      console.log(_);
       if (_ && _ !== undefined) this.userInput += _;
     });
   }
+
   onUserInputChange(event: string) {
-    this._keyboardService.inputButtonClick$.next(event.slice(-1));
+    const inputSymbol = event.slice(-1);
+    this._keyboardService.inputButtonClick$.next(inputSymbol);
+    if (inputSymbol == ' ') {
+      this._inputService.userInputWord$.next(
+        this.userInput.trim().split(' ').pop()
+      );
+      if (this.userInput.length > 120) this.userInput = '';
+    }
   }
 }

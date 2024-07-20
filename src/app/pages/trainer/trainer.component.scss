@@ -1,19 +1,66 @@
 :host {
   width: 100%;
-  display: grid;
+  // height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  align-items: center;
   height: 100%;
-  gap: 50px;
-  grid-template-rows: 2fr 1fr 4fr;
-  app-text {
-    justify-self: center;
-    width: 80%;
-  }
-  app-input {
-    justify-self: center;
-    width: 60%;
-  }
-  app-keyboard {
-    justify-self: center;
+  // justify-content: center;
+
+  .wrapper {
     width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 50px;
+    grid-template-rows: 2fr 1fr 4fr;
+    app-text {
+      justify-self: center;
+      width: 80%;
+    }
+    app-input {
+      justify-self: center;
+      width: 60%;
+    }
+    app-keyboard {
+      justify-self: center;
+      width: 100%;
+    }
+  }
+
+  button {
+    height: 40px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .result-modal {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border: 1px solid var(--light-color);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: var(--background-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-around;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .result-modal div {
+    width: 100%;
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: var(--element-background-color);
+    color: var(--light-color);
+  }
+
+  .result-modal div:last-child {
+    margin-bottom: 0;
   }
 }
