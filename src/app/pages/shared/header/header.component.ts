@@ -3,10 +3,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   inject,
+  OnInit,
 } from '@angular/core';
 import { Component } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { StateService } from '../../../services/state.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,15 +19,43 @@ import { StateService } from '../../../services/state.service';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   totalSeconds = 60;
   timerSubscription$!: Subscription;
   isTimerStart: boolean = false;
+  activeRoute: number;
+
   private _cdr = inject(ChangeDetectorRef);
   private _stateService = inject(StateService);
+  private _route = inject(Router);
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._route.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        switch (event.url) {
+          case '/trainer':
+            this.activeRoute = 1;
+            break;
+          case '/results':
+            this.activeRoute = 2;
+            break;
+          case '/custom':
+            this.activeRoute = 3;
+            break;
+          case '/settings':
+            this.activeRoute = 4;
+            break;
+          case '/login':
+            this.activeRoute = 5;
+            break;
+          default:
+            this.activeRoute = 1;
+            break;
+        }
+      }
+    });
+  }
 
   onClick() {
     this._stateService.updateTrialProgress(true);
@@ -41,7 +71,7 @@ export class HeaderComponent {
       }
     });
   }
-
+  onSave() {}
   ngOnDestroy(): void {
     if (this.timerSubscription$) {
       this.timerSubscription$.unsubscribe();

@@ -1,1 +1,19 @@
-<p>settings works!</p>
+<div class="form-wrapper">
+  <form [formGroup]="form">
+    <div class="form-group">
+      <label for="theme">Цветовая тема</label>
+      <select name="" id="theme" formControlName="theme">
+        <option value="1">Светлая</option>
+        <option value="2">Темная</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="fontSize">Размер текста</label>
+      <input type="number" formControlName="fontSize" />
+    </div>
+    <div class="form-group">
+      <label for="name">Количество секунд</label>
+      <input type="number" formControlName="timer" />
+    </div>
+  </form>
+</div>

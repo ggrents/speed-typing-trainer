@@ -1,1 +1,44 @@
-<p>results works!</p>
+<div class="switch-tab">
+  <div
+    class="switch-tab__best"
+    (click)="switchNumber = 1"
+    [ngClass]="{ current: switchNumber === 1 }"
+  >
+    ЛУЧШИЕ РЕЗУЛЬТАТЫ
+  </div>
+  <div
+    class="switch-tab__self"
+    (click)="switchNumber = 2"
+    [ngClass]="{ current: switchNumber === 2 }"
+  >
+    МОИ РЕЗУЛЬТАТЫ
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>Дата</th>
+    <th>Пользователь</th>
+    <th>Результат</th>
+  </tr>
+  <tr>
+    <td>20.07.2024</td>
+    <td>ggrents</td>
+    <td>60</td>
+  </tr>
+  <tr>
+    <td>18.07.2024</td>
+    <td>arina.kartina</td>
+    <td>55</td>
+  </tr>
+  <tr>
+    <td>15.07.2024</td>
+    <td>gggrents</td>
+    <td>78</td>
+  </tr>
+  <tr>
+    <td>11.05.2023</td>
+    <td>13tvr</td>
+    <td>53</td>
+  </tr>
+</table>

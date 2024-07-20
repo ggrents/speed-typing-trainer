@@ -1,5 +1,6 @@
 <nav class="list-wrapper">
   <div
+    routerLink="/trainer"
     class="list-item"
     (click)="selectItem('start')"
     [ngClass]="{ active: selectedItem === 'start' }"
@@ -7,6 +8,7 @@
     ПРОЙТИ ТЕСТ
   </div>
   <div
+    routerLink="/results"
     class="list-item"
     (click)="selectItem('results')"
     [ngClass]="{ active: selectedItem === 'results' }"
@@ -14,6 +16,7 @@
     РЕЗУЛЬТАТЫ
   </div>
   <div
+    routerLink="/custom"
     class="list-item"
     (click)="selectItem('createTest')"
     [ngClass]="{ active: selectedItem === 'createTest' }"
@@ -21,6 +24,7 @@
     ДОБАВИТЬ ТЕКСТ
   </div>
   <div
+    routerLink="/settings"
     class="list-item"
     (click)="selectItem('settings')"
     [ngClass]="{ active: selectedItem === 'settings' }"

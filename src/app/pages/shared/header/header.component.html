@@ -11,10 +11,12 @@
     </div>
   </div>
 
-  @if(isTimerStart) {
+  @if(activeRoute === 1) { @if(isTimerStart) {
   <div (click)="onClick()" class="timer-container">{{ totalSeconds }}</div>
 
   } @else {
   <button (click)="onClick()">НАЧАТЬ</button>
+  } } @else if (activeRoute === 3 || activeRoute === 4) {
+  <button (click)="onSave()">Сохранить</button>
   }
 </div>
