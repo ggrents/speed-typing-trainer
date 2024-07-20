@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class KeyboardService {
-  buttonClick$: Subject<string> = new Subject<string>();
+  inputButtonClick$: Subject<string> = new Subject<string>();
+  keyboardButtonClick$: Subject<string> = new Subject<string>();
   constructor() {}
 }

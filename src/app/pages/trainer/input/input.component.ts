@@ -32,6 +32,7 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
     this._stateService.trialProgress$.subscribe((_) => {
       if (_) this.startDisplayingText();
+      else this.stopDisplayingText();
     });
   }
 

@@ -10,10 +10,15 @@ import { KeyboardService } from '../../../services/keyboard.service';
   styleUrl: './text.component.scss',
 })
 export class TextComponent implements OnInit {
-  userInput: string;
+  userInput: string = '';
   constructor(private _keyboardService: KeyboardService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._keyboardService.keyboardButtonClick$.subscribe((_) => {
+      console.log(_);
+      if (_ && _ !== undefined) this.userInput += _;
+    });
+  }
   onUserInputChange(event: string) {
-    this._keyboardService.buttonClick$.next(event.slice(-1));
+    this._keyboardService.inputButtonClick$.next(event.slice(-1));
   }
 }

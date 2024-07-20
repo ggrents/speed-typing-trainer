@@ -17,11 +17,15 @@ interface IKey {
 export class KeyboardComponent implements OnInit {
   constructor(private _keyboardService: KeyboardService) {}
   ngOnInit(): void {
-    this._keyboardService.buttonClick$.subscribe((_) => {
+    this._keyboardService.inputButtonClick$.subscribe((_) => {
       this.keyboardButtons.forEach((_) => (_.pushed = false));
       let btn = this.keyboardButtons.find((i) => i.mark == _);
       if (btn) btn.pushed = true;
     });
+  }
+
+  onButtonClick(key: IKey) {
+    this._keyboardService.keyboardButtonClick$.next(key.mark);
   }
 
   keyboardButtons: IKey[] = [
