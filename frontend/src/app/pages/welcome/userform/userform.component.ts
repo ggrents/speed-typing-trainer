@@ -1,12 +1,17 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-userform',
   standalone: true,
   imports: [],
   templateUrl: './userform.component.html',
-  styleUrl: './userform.component.scss'
+  styleUrl: './userform.component.scss',
 })
 export class UserformComponent implements OnInit {
   isLogin: boolean = false;
@@ -16,8 +21,8 @@ export class UserformComponent implements OnInit {
   constructor() {
     this.form = this.fb.group({
       username: [''],
-      passwotd: ['']
-    })
+      passwotd: [''],
+    });
   }
   ngOnInit(): void {
     this.isLogin = true;

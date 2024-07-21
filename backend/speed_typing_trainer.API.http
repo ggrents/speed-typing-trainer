@@ -1,0 +1,6 @@
+@speed_typing_trainer.API_HostAddress = http://localhost:5065
+
+GET {{speed_typing_trainer.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

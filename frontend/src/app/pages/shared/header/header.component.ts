@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
   onClick() {
     this._stateService.updateTrialProgress(true);
     this.isTimerStart = true;
-    this.timerSubscription$ = interval(100).subscribe(() => {
+    this.timerSubscription$ = interval(1000).subscribe(() => {
       if (this.totalSeconds > 0) {
         this.totalSeconds--;
         this._cdr.markForCheck();
