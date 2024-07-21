@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <textarea
+    name=""
+    id=""
+    [disabled]="inputDisabled"
+    [placeholder]="placeholderText"
+    [(ngModel)]="userInput"
+    (ngModelChange)="onUserInputChange($event)"
+  ></textarea>
+</div>

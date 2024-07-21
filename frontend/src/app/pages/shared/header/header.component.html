@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="user-settings">
+    <div class="user-settings__info">
+      <span> gggrents </span>
+    </div>
+    <div class="user-settings__lang">
+      <select name="" id="">
+        <option value="ru">Ru</option>
+        <!-- <option value="eng">Eng</option> -->
+      </select>
+    </div>
+  </div>
+
+  @if(activeRoute === 1) { @if(isTimerStart) {
+  <div (click)="onClick()" class="timer-container">{{ totalSeconds }}</div>
+
+  } @else {
+  <button (click)="onClick()">НАЧАТЬ</button>
+  } } @else if (activeRoute === 3 || activeRoute === 4) {
+  <button (click)="onSave()">Сохранить</button>
+  }
+</div>
